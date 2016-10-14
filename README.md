@@ -1,5 +1,5 @@
-# mangaStore
-mangaStore is an API where you can store differents mangas.
+# Manga Store
+Manga Store is an API where you can store differents mangas.
 
 Front-end: HTML, Bootstrap, AngularJS
 
