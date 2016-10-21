@@ -1,62 +1,10 @@
-<!DOCTYPE html>
-<html ng-app="myApp">
-<head>
-	<meta charset="utf-8">
-	<title>Mangastore</title>
-	<link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-</head>
-<body>
-	<nav class="navbar navbar-inverse">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">Manga Store</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Accueil</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-          <ul class="nav navbar-nav pull-right">
-          	<li><a href="/inscription">Inscription</a></li>
-          	<li><a href="/connexion">Connexion</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-
-    <div class="container">
-
-    	<div class="starter-template">
-        	<h1>Bienvenue sur Manga Store</h1>
-        	<p class="lead">La galerie des mangas accessible à tous.<br> Viens découvrir tous les mangas du moments !</p>
-      	</div>
-
-    </div><!-- /.container -->
-
-    <div class="container">
-    	<div class="row">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3>Derniers Mangas</h3>
-            <a class="btn btn-primary" href="/ajoutManga">Ajouter un manga</a>
-          </div>
-
-
-        </div>
+<div class="container">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3>Derniers Mangas</h3>
+        <a class="btn btn-primary" href="#/mangas/ajoutManga">Ajouter un manga</a>
       </div>
     </div>
-
-    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
-	<script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
-	<script type="text/javascript" src="/bower_components/angular-route/angular-route.js"></script>
-	<script type="text/javascript" src="/controllers/mangasCtrl.js"></script>
-	<script type="text/javascript" src="/app.js"></script>
-</body>
-</html>
+  </div>
+</div>
