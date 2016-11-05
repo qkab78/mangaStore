@@ -11,4 +11,32 @@ var userSchema = new Schema({
 });
 
 // Nous exportons notre modèle avec comme nom "User", 'users' sera le nom de notre "table"
-exports.model = mongoose.model('User', userSchema, 'users');
+var User = module.exports = mongoose.model('User', userSchema, 'users');
+
+//Va chercher tous les users de la base
+module.exports.getUsers = function (callback, limit) {
+	User.find(callback).limit(limit);
+}
+
+//Va chercher un user de la base
+module.exports.getUserById = function (id, callback) {
+	User.findById(id, callback);
+}
+//Va ajouter un user de la base
+module.exports.addUser = function (user, callback) {
+	User.create(user, callback);
+}
+//Va modifier un user de la base
+module.exports.updateUser = function (id, user, options, callback) {
+	var query = {_id : id}
+	var update = {
+		email: user.email,
+		mdp: user.mdp
+	}
+	User.findOneAndUpdate(query, update, options, callback);
+}
+//Va supprimer un user de la base
+module.exports.deleteUser = function (id, callback) {
+	var query = {_id : id}
+	User.remove(query, callback);
+}

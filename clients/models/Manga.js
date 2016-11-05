@@ -29,7 +29,7 @@ module.exports.addManga = function (manga, callback) {
 module.exports.updateManga = function (id, manga, options, callback) {
 	var query = {_id : id}
 	var update = {
-		title: manga.title,
+		titre: manga.titre,
 		description: manga.description,
 		image_url: manga.image_url
 	}

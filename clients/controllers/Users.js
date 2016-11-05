@@ -6,67 +6,38 @@ var mongoose = require('mongoose'),
 
 var Users = {
     index: function (req, res) {
-
-        User.find({}, function (err, users) {
-            if (err) throw err;
-
-            // object of all the users
-            console.log(users);
-            res.render('users/index', {"users": users});
+        User.getUsers(function(err, users) {
+            if (err) {throw err;}
+            res.json(users);
         });
-
-        
     },
-    create: function (req, res) {
-        var bodyParse = req.body;
-        var u = new User({
-            nom: bodyParse.nom,
-            prenom: bodyParse.prenom,
-            email: bodyParse.email,
-            mdp: bodyParse.mdp
-        });
-
-        u.save(function (err) {
-            if (err) { throw err;  }
-            console.log('User inserted');
-        });
-
-        console.log(u);
-        res.json(u);
+    indexById: function (req, res) {
+        User.getUserById(req.params._id,function(err, user) {
+            if (err) {throw err;}
+            res.json(user);
+        });  
     },
-    update: function (req, res) {
-
-        User.findById(req.params.id, function (err, user) {
-            if (err) throw err;
-
-            // change the users location
-            user.nom = bodyParse.nom;
-
-            // save the user
-            user.save(function (err) {
-                if (err) throw err;
-
-                console.log('User successfully updated!');
-            });
-
+    addUser: function (req, res) {
+        var user = req.body;
+        User.addUser(user, function(err, user) {
+            if (err) {throw err;}
+            res.json(user);
         });
-
-        res.end();
+    }, 
+    updateUser: function (req, res) {
+        var id = req.params._id;
+        var user = req.body;
+        User.updateUser(id, user, {}, function (err, user) {
+            if (err) { throw err;}
+            res.json(user);
+        });
     },
-    delete: function (req, res) {
-
-        User.findById(req.params.id, function (err, user) {
-            if (err) throw err;
-
-            // delete him
-            user.remove(function (err) {
-                if (err) throw err;
-
-                console.log('User successfully deleted!');
-            });
+    deleteUser: function (req, res) {
+        var id = req.params._id;
+        User.deleteUser(id, function (err, user) {
+            if (err) { throw err;}
+            res.json(user);
         });
-
-        res.end();
     },
 
     connect: function(req, res){

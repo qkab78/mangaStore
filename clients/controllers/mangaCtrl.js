@@ -19,4 +19,19 @@ myApp.controller('MangasController', ['$scope', '$http', '$location', '$routePar
 			console.log(response);
 		});
 	}
+	$scope.updateManga = function () {
+		var id = $routeParams.id;
+		$http.put('/mangas/edit/'+id, $scope.manga).success(function (response) {
+			console.log("updateManga() fonctionne !");
+			window.location.href="#/";
+			console.log(response);
+		});
+	}
+	$scope.deleteManga = function (id) {
+		$http.delete('/mangas/delete/'+id).success(function (response) {
+			console.log("deleteManga() fonctionne !");
+			window.location.href="#/";
+			console.log(response);
+		});
+	}
 }]);

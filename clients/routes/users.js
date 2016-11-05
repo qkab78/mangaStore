@@ -7,13 +7,13 @@ var users = require('../controllers/Users'); // Nous allons récuperer notre con
 router.get('/', users.index);
 
 /* POST Création d'un nouvel utilisateur */
-router.post('/', users.create);
+router.post('/', users.addUser);
 
 /* PUT Modification d'un utilisateur */
-router.put('/:id(\\d+)', users.update); 
+router.put('/:id(\\d+)', users.updateUser); 
 
 /* DELETE Suppression d'un utilisateur */
-router.delete('/:id(\\d+)', users.delete);
+router.delete('/:id(\\d+)', users.deleteUser);
 
 /*POST connexion d'un utilisateur*/
 router.post('/connexion', users.connect);

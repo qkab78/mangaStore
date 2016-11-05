@@ -32,12 +32,12 @@ app.get('/', function(req, res){
 });
 
 app.get('/inscription', function(req, res){
-	res.sendFile(path.join(__dirname+'/clients/views/inscription.html'));
+	res.sendFile(path.join(__dirname+'/clients/views/users/inscription.html'));
 	console.log('Un user va s\'inscrire...');
 });
 
 app.get('/connexion', function(req, res){
-	res.sendFile(path.join(__dirname+'/clients/views/connexion.html'));
+	res.sendFile(path.join(__dirname+'/clients/views/users/connexion.html'));
 	console.log('Un user va se connecter...');
 });
 
